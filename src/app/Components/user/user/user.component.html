@@ -1,0 +1,33 @@
+<form
+  action=""
+  class="log-in"
+  autocomplete="off"
+  [formGroup]="userForm"
+  (submit)="create()"
+>
+  <h4>Weather for <span>Nimble</span></h4>
+  <p>Enter your name and city to view today's weather:</p>
+  <div class="floating-label">
+    <input
+      placeholder="Name"
+      type="text"
+      name="name"
+      autocomplete="off"
+      formControlName="name"
+      [(ngModel)]="name"
+    />
+    <label for="name">What is your name?</label>
+  </div>
+  <div class="floating-label">
+    <input
+      placeholder="City"
+      type="text"
+      name="city"
+      formControlName="city"
+      [(ngModel)]="city"
+      autocomplete="off"
+    />
+    <label for="city">Which city do you live?</label>
+  </div>
+  <button type="submit" [disabled]="!name || !city">Check The Weather</button>
+</form>

@@ -1,0 +1,27 @@
+<div class="body">
+  <div class="session">
+    <div class="left">
+      <div>
+        <div class="weather" *ngIf="!!weather.description && !isMembersPage">
+          <img [src]="weather.icon" />
+          <p>
+            Conditions: {{ weather.description }}<br />
+            Temperature: {{ weather.currentTemperature }} &deg;C<br />
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="user-btn">
+        <button
+          (click)="togglePages()"
+          [innerText]="isMembersPage ? 'Current User' : ' See Members'"
+        ></button>
+      </div>
+      <div class="users">
+        <user (user)="onUserChange($event)" *ngIf="!isMembersPage"></user>
+        <members *ngIf="isMembersPage"></members>
+      </div>
+    </div>
+  </div>
+</div>
